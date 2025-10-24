@@ -1,0 +1,39 @@
+﻿version: "3"
+
+dotenv: [ '.env' ]
+
+tasks:
+  #
+  # docker
+  #
+  compose-up:
+    cmds:
+      - docker compose up -d --build
+
+  compose-down:
+    cmds:
+      - docker compose down
+
+  compose-stop:
+    cmds:
+      - docker compose stop
+
+  compose-restart:
+    cmds:
+      - docker compose down
+      - docker compose up -d --build
+
+  compose-dev-up:
+    cmds:
+      - docker compose -f {{.COMPOSE_DEV_FILE}} up -d --build
+
+  compose-dev-down:
+    cmds:
+      - docker compose -f {{.COMPOSE_DEV_FILE}} down
+
+  compose-dev-stop:
+    cmds:
+      - docker compose -f {{.COMPOSE_DEV_FILE}} stop
+  #
+  # ~docker
+  #
