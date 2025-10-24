@@ -3,6 +3,7 @@ name: homelab
 services:
   caddy:
     image: caddy:latest
+    container_name: caddy
     ports:
       - "80:80"
     volumes:
