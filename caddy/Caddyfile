@@ -1,3 +1,8 @@
 :80 {
 	respond "Hello from Caddy!" 200
 }
+
+:80/netdata* {
+    uri strip_prefix /netdata
+    reverse_proxy http://netdata:19999
+}
